@@ -1,0 +1,46 @@
+<div class="card" *ngIf='product'>
+  <div clas="card-header">
+    <h2 class="text-success text-center">{{pageTitle + ': '+ product.productName}}</h2>
+  </div>
+  <div class="container mt-3 mb-3">
+    <div class="row">
+      <div class="col col-md-6">
+        <table class="table table-bordered">
+          <tr>
+            <td class="text-right">Description</td>
+            <td>{{product.description }}</td>
+          </tr>
+          <tr>
+          <tr>
+            <td class="text-right">Product Code</td>
+            <td>{{product.productCode | convertToSpaces: '-'}}</td>
+          </tr>
+          <tr>
+            <td class="text-right">Availabe</td>
+            <td>{{product.releaseDate }}</td>
+          </tr>
+          <tr>
+            <td class="text-right">Price</td>
+            <td>{{product.price | currency:'EUR':'symbol':'1.2-2' }}</td>
+          </tr>
+          <tr>
+            <td class="text-right">Star Rating</td>
+            <td><pm-star [rating]='product.starRating'></pm-star></td>
+          </tr>
+        </table>
+      </div>
+      <div class="col col-md-6 text-center p-3">
+        <img [src] = 'product.imageUrl'
+            style="width: 40%"/>
+      </div>
+    </div>
+  </div>
+  <div class='card-footer'>
+    <button class="btn btn-outline-secondary"
+            (click)= 'onBack()'
+            style="width: 80px;">
+      <i class="fa fa-chevron-left"></i> Back
+    </button>
+  </div>
+</div>
+
